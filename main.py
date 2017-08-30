@@ -1,6 +1,6 @@
 from automation import *
 import re
-
+import traceback
 # Start Configurable variables
 ecs_clusters=['stage-nginx','stage-frontend', 'stage-worker-1', 'stage-worker-2'] # for multiple clusters: example [ 'cluster1', 'cluster2' ]
 asg_name_list = ['stage-nginx','stage-frontend', 'stage-worker-1', 'stage-worker-2']
@@ -153,9 +153,14 @@ def switchOff(ecsoperations, asoperations, snsoperations, ec2operations, rdsoper
 	ecsoperations.setDesiredCountsToZero()
 	asoperations.setDesiredCountToZero()
 	ec2operations.stopInstances()
-	rdsoperations.deleteSnapshot()
-	rdsoperations.stopDB()
 	
+	try:
+		rdsoperations.deleteSnapshot()
+		rdsoperations.stopDB()
+	except Exception:
+		print "Error in changing state of RDS. Stacktrace below."
+		print(traceback.format_exc())
+		
 	if not is_triggered_manually:
 		snsoperations.pushNotification(environment_name+" Is Down On Schedule",
 									   " ")
@@ -174,7 +179,12 @@ def switchOn(ecsoperations, asoperations, snsoperations, ec2operations, rdsopera
 	asoperations.restoreDesiredCounts()
 	ecsoperations.restoreDesiredCountsFromDB()
 	ec2operations.startInstances()
-	rdsoperations.startDB()
+	
+	try:
+		rdsoperations.startDB()
+	except Exception:
+		print "Error in changing state of RDS. Stacktrace below."
+		print(traceback.format_exc())
 	
 	if is_triggered_manually is not True:
 		snsoperations.pushNotification(environment_name+" Is Up On Schedule", " ")
