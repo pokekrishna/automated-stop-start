@@ -196,7 +196,7 @@ def switchOn(ecsoperations, asoperations, snsoperations, ec2operations, rdsopera
 									   "Stage Jenkins user: "+event_global['user'] + " has initiated this action")
 		
 		# set the state to on
-		setEnvironmentState(dynamodboperations, "on")
+	setEnvironmentState(dynamodboperations, "on")
 
 def setIgnoreNextTrigger(dynamodboperations, count):
 	response = dynamodboperations.getItem(ignore_next_trigger_key)
