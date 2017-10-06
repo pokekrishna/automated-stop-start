@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/automated-stop-start.iml" filepath="$PROJECT_DIR$/.idea/automated-stop-start.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/reachify-lambda.iml" filepath="$PROJECT_DIR$/.idea/reachify-lambda.iml" />
       <module fileurl="file://$PROJECT_DIR$/../rough/.idea/rough.iml" filepath="$PROJECT_DIR$/../rough/.idea/rough.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tharun-flask/.idea/tharun-flask.iml" filepath="$PROJECT_DIR$/../tharun-flask/.idea/tharun-flask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../yaml-operations/.idea/yaml-operations.iml" filepath="$PROJECT_DIR$/../yaml-operations/.idea/yaml-operations.iml" />
     </modules>
   </component>
 </project>

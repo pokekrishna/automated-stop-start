@@ -1,7 +1,8 @@
 import boto3
 
+
 class AutoScalingOperations:
-	
+	# this class deals with autoscaling operations
 	as_client = boto3.client('autoscaling')
 	dynamodb_client = boto3.client('dynamodb')
 	
