@@ -23,7 +23,13 @@ class RDSOperations:
 		)
 		# print response
 	def deleteSnapshot(self):
-		response = self.rds_client.delete_db_snapshot(
-			DBSnapshotIdentifier=self.db_snapshot_id
-		)
-		print ("Deleted Snapshot ID: '%s'" % (self.db_snapshot_id))
+		try:
+			response = self.rds_client.delete_db_snapshot(
+				DBSnapshotIdentifier=self.db_snapshot_id
+			)
+			
+			print ("Deleted Snapshot ID: '%s'" % (self.db_snapshot_id))
+		except Exception as e:
+			print ("Exception in Deletion of snapshot: " % (e))
+		
+		
