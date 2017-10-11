@@ -102,8 +102,8 @@ class ECSOperations:
 					ScalableDimension='ecs:service:DesiredCount',
 					MinCapacity=0
 				)
-			print ("Desired count and min count from ECS for cluster '%s' : %s and %s" % (cluster, str(self.getServicesDesiredCounts(cluster, services_list)[0],
-			                                                                                           str(self.getServicesDesiredCounts(cluster, services_list)[1]))))
+			print ("Desired count and min count from ECS for cluster '%s' : %s and %s" % (cluster, str(self.getServicesDesiredCounts(cluster, services_list)[0]),
+			                                                                                           str(self.getServicesDesiredCounts(cluster, services_list)[1])))
 		
 		
 			
