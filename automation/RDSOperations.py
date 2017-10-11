@@ -30,6 +30,6 @@ class RDSOperations:
 			
 			print ("Deleted Snapshot ID: '%s'" % (self.db_snapshot_id))
 		except Exception as e:
-			print ("Exception in Deletion of snapshot: " % (e))
+			print ("Exception in Deletion of snapshot: %s" % (e))
 		
 		
